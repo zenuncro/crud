@@ -1,0 +1,349 @@
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #252525 #ffffff;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #252525;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+}
+
+.secao{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    scroll-snap-type:none;
+    background-size: cover;
+    background-position: center center;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.secao:last-child{
+    min-height: 100vh;
+}
+
+#landing-container{
+    position: relative;
+    background-image: linear-gradient(to right, #FFA200 , #FFC300);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+}
+
+#landing-container::before{
+    content: "";
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    background-size: cover;
+}
+
+.logo-layout{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.nav-links {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    left: 0;
+    z-index: 1000;
+    align-items: left;
+    text-align: left;
+    margin: 20px auto;
+    margin-top: 0;
+    margin-left: 20px;
+    list-style-type: none;
+    padding: 10px;
+}
+
+.nav-links ul {
+    margin-top: 30px;
+    padding: 0;
+    text-align: right;
+    margin-right: 20px;
+    margin-left: auto;
+} 
+
+.nav-links li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav-links li:last-child{
+    margin-right: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #252525;
+    font-size: large;
+    font-weight: bolder;
+
+}
+
+.nav-links li a:hover {
+    color: #fdfdfd; 
+}
+
+.nav-links li a.active {
+    color: #fdfdfd; 
+    font-weight: bold;
+}
+.welcome {
+    padding: 10px;
+    color: #fdfdfd;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+}
+
+.header{
+    font-family: 'Bungee', sans-serif;
+    margin-top: 150px;
+    font-size: 80px;
+}
+
+/*Botão personalizado*/
+
+.welcome button {
+    width: 15em;
+    height: 3em;
+    border-radius: 30em;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.welcome button::before {
+    content: '';
+    width: 0;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: -1;
+}
+
+/*-------------------------*/
+
+.logo {
+    width: 100px;
+    height: auto;
+    position: relative;
+    border-radius: 10px;
+    border: 2px solid gold; 
+    padding: 5px;
+    margin-right: 30px;
+    background-color: #171515;
+}
+
+#how-it-works, #about-us{
+    height: auto;
+    z-index: 1;
+}
+
+#how-it-works{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(to bottom, #cfdbd5, #e8eddf);
+    background-size: cover;
+    scroll-snap-type: none;
+    z-index: 1;
+    position: relative;
+}
+
+.how-it-works-container{
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+#how-it-works p {
+    margin-bottom: 10px;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 5px;
+}
+.login img,
+.categoria img,
+.agenda img,
+.anexo img{
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+}
+
+.login p{
+    font-size: x-large;
+    color:#252525 ;
+}
+
+.categoria{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin:5px;
+}
+
+.categoria p{
+    font-size: x-large;
+    color: #252525;
+}
+
+.agenda{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 5px;
+}
+
+.agenda p{
+    font-size: x-large;
+    color: #252525;
+}
+
+.anexo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 5px;
+}
+
+.anexo p{
+    font-size: x-large;
+    color: #252525;
+}
+
+#about-us {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #e8eddf;
+    background-size: cover;
+    scroll-snap-type: none;
+    z-index: 1;
+    position: relative;
+}
+
+.about-us-h1{
+    color: #252525;
+    margin-bottom: 20px;
+}
+
+.text-about-us{
+    text-align: center;
+    color: #252525
+}
+
+.text-objetivo{
+    text-align: center;
+    color: #252525;
+}
+
+.text-contacto{
+    text-align: center;
+    color: #252525;
+}
+
+.GitHubLogo{
+    width: 100%;
+    max-width: 40px;
+    height: auto;
+}
+
+.rodape ul {
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.rodape li {
+    text-align: center;
+    align-items: center;
+    display: inline;
+    margin-right: 20px;
+}
+
+
+
+/*------------login-------------*/
+.box-area{
+    width: 930px;
+}
+.img-fluid {
+    width: 100%;
+    height: 100%;
+}
+
+.right-box{
+    padding: 40px 30px 40px 40px;
+}
+
+::placeholder{
+    font-size: 16px;
+}
+.rounded-4{
+    border-radius: 20px;
+}
+.rounded-5{
+    border-radius: 30px;
+}
+/*-------------------------*/
