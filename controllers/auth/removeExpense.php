@@ -5,16 +5,28 @@ require_once __DIR__ . '/../../infra/db/connection.php';
 function removeExpense($id)
 {
     try {
+        // Verifica se há dependências na tabela sharedExpenses
+        $sqlCheckDependencies = "SELECT COUNT(*) FROM sharedExpenses WHERE expense_id = :id";
+        $stmtCheckDependencies = $GLOBALS['pdo']->prepare($sqlCheckDependencies);
+        $stmtCheckDependencies->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmtCheckDependencies->execute();
+        $dependencyCount = $stmtCheckDependencies->fetchColumn();
+
+        if ($dependencyCount > 0) {
+            // Remove as dependências da tabela sharedExpenses
+            $sqlRemoveDependencies = "DELETE FROM sharedExpenses WHERE expense_id = :id";
+            $stmtRemoveDependencies = $GLOBALS['pdo']->prepare($sqlRemoveDependencies);
+            $stmtRemoveDependencies->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmtRemoveDependencies->execute();
+        }
+
+        // Remove a despesa da tabela expenses
         $sqlRemove = "DELETE FROM expenses WHERE id = :id";
-
-        $PDOStatement = $GLOBALS['pdo']->prepare($sqlRemove);
-
-        $success = $PDOStatement->execute([
-            ':id' => $id
-        ]);
+        $stmtRemove = $GLOBALS['pdo']->prepare($sqlRemove);
+        $success = $stmtRemove->execute([':id' => $id]);
 
         if ($success) {
-            header('Location: /crud/pages/secure/user/listExpense.php');
+            header('Location: ../../pages/secure/user/listExpense.php');
             exit();
         } else {
             echo "Erro ao remover despesa.";
